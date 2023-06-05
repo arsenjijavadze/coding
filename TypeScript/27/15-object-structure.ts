@@ -1,0 +1,1 @@
+let userA: { name: string, age: number } = { name: 'john', age: 30 };
