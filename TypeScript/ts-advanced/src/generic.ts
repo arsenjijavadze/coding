@@ -50,29 +50,62 @@ function withCount<T extends ILength>(value: T): { value: T, count: string } {
 
 //===========================
 
-class Collection<T> {
-    constructor(private _items: T[] = []) { }
+// class Collection<T extends number | string | boolean > {
+//     constructor(private _items: T[] = []) { }
 
-    add(item: T) {
-        this._items.push(item)
-    }
+//     add(item: T) {
+//         this._items.push(item)
+//     }
 
 
-    remove(item: T) {
-        this._items = this._items.filter(i => i !== item)
-    }
+//     remove(item: T) {
+//         this._items = this._items.filter(i => i !== item)
+//     }
 
-    get items(): T[] {
-        return this._items
-    }
+//     get items(): T[] {
+//         return this._items
+//     }
+// }
+
+// const strings = new Collection<string>(['I', 'Am', 'Strings'])
+// strings.add('!');
+// strings.remove('Am');
+// console.log(strings.items);
+
+// const numbers = new Collection<number>([1, 2, 3])
+// numbers.add(2);
+// numbers.remove(3);
+// console.log(numbers.items);
+
+//=========================
+
+interface Car {
+    model: string
+    year: number
 }
 
-const strings = new Collection<string>(['I', 'Am', 'Strings'])
-strings.add('!');
-strings.remove('Am');
-console.log(strings.items);
+function createAndValidateCar(model: string, year: number): Car {
+    const car: Partial<Car> = {}
 
-const numbers = new Collection<number>([1, 2, 3])
-numbers.add(2);
-numbers.remove(3);
-console.log(numbers.items);
+    if (model.length > 3) {
+        car.model = model
+    }
+
+    if (year > 2000) {
+        car.year = year
+    }
+
+    return car as Car
+}
+
+///
+
+const cars: Readonly<Array<string>> = ['Ford', 'Audi'];
+// cars.shift()
+
+const ford: Readonly<Car> = {
+    model: 'Ford',
+    year: 2020
+}
+
+//ford.model = 'qwer';
