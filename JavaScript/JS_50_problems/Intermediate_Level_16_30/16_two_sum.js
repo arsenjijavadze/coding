@@ -4,15 +4,25 @@
  * in the array that add up to the target sum and return their indices.
  */
 function twoSum(nums, target) {
+    // Create a map to store the indices of the numbers in the array.
     const numMap = new Map();
 
+    // Iterate over the array.
     for (let i = 0; i < nums.length; i++) {
+        // Calculate the complement of the current number. 
         const complement = target - nums[i];
+
+        // Check if the complement is already in the map.
         if (numMap.has(complement)) {
+            // Return the indices of the current number and the complement.
             return [numMap.get(complement), i];
         }
+
+        // Add the current number and its index to the map.
         numMap.set(nums[i], i);
     }
+
+    // If we reach this point, then no two numbers in the array add up to the target sum.
     return null;
 }
 
