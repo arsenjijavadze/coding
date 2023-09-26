@@ -3,9 +3,9 @@
  * Write a function that takes an array of numbers and target sum. Find two numbers
  * in the array that add up to the target sum and return their indices.
  */
-//123456789
 function twoSum(nums, target) {
     const numMap = new Map();
+
     for (let i = 0; i < nums.length; i++) {
         const complement = target - nums[i];
         if (numMap.has(complement)) {
@@ -15,7 +15,6 @@ function twoSum(nums, target) {
     }
     return null;
 }
-
 
 
 //* Alternative solution 
