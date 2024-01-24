@@ -11,7 +11,7 @@ function fibonacci(n) {
         sequence.push(next);
     }
 
-    return sequence;
+    return sequence; 
 }
 
 console.log(fibonacci(8));
