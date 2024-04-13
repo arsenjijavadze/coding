@@ -1,1 +1,3 @@
 all.js
+*.o
+hello
